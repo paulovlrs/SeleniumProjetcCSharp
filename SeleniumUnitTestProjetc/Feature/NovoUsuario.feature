@@ -1,4 +1,4 @@
-﻿Feature: NovoUsuarioStep
+﻿Feature: NovoUsuario
 	Verificar se o cadastro de usuário está sendo inserido com sucesso
 
 @cadastro

@@ -149,6 +149,7 @@
     <Compile Include="Pages\NovoUsuarioPage.cs" />
     <Compile Include="Pages\PrincipalPage.cs" />
     <Compile Include="Pages\TabelaPage.cs" />
+    <Compile Include="Steps\NovoUsuarioSteps.cs" />
     <Compile Include="Test\ListaDeUsuarioTest.cs" />
     <Compile Include="Test\NovoUsuarioTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -157,7 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Feature\NovoUsuarioStep.feature" />
+    <None Include="Feature\NovoUsuario.feature" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
