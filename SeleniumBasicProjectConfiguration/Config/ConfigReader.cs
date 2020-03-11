@@ -23,6 +23,8 @@ namespace SeleniumBasicProjectConfiguration.Config
             XPathItem buildName;
             XPathItem isReport;
 
+            // Força a pegar o diretório da aplicação
+            Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
             // Ler arquivo xml
             string strFileName = Environment.CurrentDirectory.ToString() + "\\Config\\GlobalConfig.xml";
             FileStream stream = new FileStream(strFileName, FileMode.Open);

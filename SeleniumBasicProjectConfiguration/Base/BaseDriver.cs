@@ -11,18 +11,18 @@ namespace SeleniumBasicProjectConfiguration.Base
     public class BaseDriver
     {
         private IWebDriver _driver { get; set; }
-        public BasePage PaginaCorrente { get; set; }
+        public BasePage CurrentPage { get; set; }
 
         // instancia generica de página
-        protected TPage GetInstancia<TPage>() where TPage : BasePage, new()
+        protected TPage GetInstance<TPage>() where TPage : BasePage, new()
         {
-            TPage paginaInstancia = new TPage()
+            TPage pageInstance = new TPage()
             {
                 _driver = DriverContext.Driver
             };
 
-            PageFactory.InitElements(DriverContext.Driver, paginaInstancia);
-            return paginaInstancia;
+            PageFactory.InitElements(DriverContext.Driver, pageInstance);
+            return pageInstance;
         }
 
         // verifica se é a página no qual estou usando atualmente

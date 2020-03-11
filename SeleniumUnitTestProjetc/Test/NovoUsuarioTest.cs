@@ -6,29 +6,33 @@ using SeleniumBasicProjectConfiguration.Helpers;
 
 namespace SeleniumUnitTestProjetc.Test
 {
-    [TestClass]
+    //[TestClass]
     public class NovoUsuarioTest : HookInitialize
     {
-        [TestMethod]
+       //[TestMethod]
         public void CriandoUsuario()
         {
             // Recupero os elementos da página atual para permitir controlar
-            PaginaCorrente = GetInstancia<PrincipalPage>();
+            CurrentPage = GetInstance<PrincipalPage>();
 
             // Executo ações de controle na página
-            PaginaCorrente = PaginaCorrente.As<PrincipalPage>().ClickButtonComecarAutomacaoWeb();
+            CurrentPage = CurrentPage.As<PrincipalPage>().ClickButtonComecarAutomacaoWeb();
             LogHelpers.Write("Acesso a página Home");
             LogHelpers.PrintScreen();
-            PaginaCorrente = PaginaCorrente.As<HomePage>().ClickLinkCriarUsuario();
+            CurrentPage = CurrentPage.As<HomePage>().ClickLinkCriarUsuario();
             LogHelpers.Write("Acesso a página de criar usuário");
             LogHelpers.PrintScreen();
-
-
+            
             // Verifico se existe elemento(s)
-            PaginaCorrente.As<NovoUsuarioPage>().CheckIfNovoUsuarioExist();
+            CurrentPage.As<NovoUsuarioPage>().VerificaSeElementosDisponiveis();
 
-            PaginaCorrente.As<NovoUsuarioPage>().PreencherCampos("Paulo Victor L R", "Silva", "teste@teste.com", "Rua 1", "PUC", "QA", "M", 29);
-            LogHelpers.Write("Usuário inserido e salvo");
+            // Preencho os campos
+            CurrentPage.As<NovoUsuarioPage>().PreencherDadosDeEntrada("Paulo Victor L R", "Silva", "teste@teste.com", "Rua 1", "PUC", "QA", "M", 29);
+            CurrentPage.As<NovoUsuarioPage>().CliqueCriarUsuario();
+           LogHelpers.Write("Usuário inserido e salvo");
+            //verifico se usuário foi criado com sucesso
+            CurrentPage.As<NovoUsuarioPage>().RetornoMensagemSucesso().Contains("Usuário Criado com sucesso");
+            //var a = CurrentPage.As<NovoUsuarioPage>().MensagemSucesso();
             LogHelpers.PrintScreen();
 
             CloseBrowser();

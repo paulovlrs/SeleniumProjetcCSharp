@@ -41,13 +41,23 @@ namespace SeleniumUnitTestProjetc.Pages
 
         [FindsBy(How = How.Id, Using = "error_explanation")]
         private IList<IWebElement> MessageErro { get; set; }
-
+    
         [FindsBy(How = How.Id, Using = "notice")]
-        private IList<IWebElement> MessageNotice { get; set; }
+        IWebElement MessageNotice { get; set; }
 
-        internal void CheckIfNovoUsuarioExist()
+        /// <summary>
+        /// Verifica se os campos da tela "Cadastrar usuário" estão disponíveis.
+        /// </summary>
+        internal void VerificaSeElementosDisponiveis()
         {
             InputUser_name.AssertElementPresent();
+            InputUser_lastname.AssertElementPresent();
+            InputUser_email.AssertElementPresent();
+            InputUser_address.AssertElementPresent();
+            InputUser_university.AssertElementPresent();
+            InputUser_profile.AssertElementPresent();
+            InputUser_gender.AssertElementPresent();
+            InputUser_age.AssertElementPresent();
         }        
 
         public void MensagemAlerta(string mensagem)
@@ -67,24 +77,35 @@ namespace SeleniumUnitTestProjetc.Pages
         /// <summary>
         /// Preenche os campos da tela de "Cadastrar usuário".
         /// </summary>
-        public void PreencherCampos(string nome, string ultimoNome, string email, string endereco, string universidade, string profissao, string genero, int idade)
-        {
-            InputUser_name.SendKeys(nome);
-            InputUser_lastname.SendKeys(ultimoNome);
+        public void PreencherDadosDeEntrada(string name, string lastName, string email, string address, string university, string profession, string genre, int age)
+        {            
+            InputUser_name.SendKeys(name);
+            InputUser_lastname.SendKeys(lastName);
             InputUser_email.SendKeys(email);
-            InputUser_address.SendKeys(endereco);
-            InputUser_university.SendKeys(universidade);
-            InputUser_profile.SendKeys(profissao);
-            InputUser_gender.SendKeys(genero);
-            InputUser_age.SendKeys(idade.ToString());
-            ButtonCreate.Click();
+            InputUser_address.SendKeys(address);
+            InputUser_university.SendKeys(university);
+            InputUser_profile.SendKeys(profession);
+            InputUser_gender.SendKeys(genre);
+            InputUser_age.SendKeys(age.ToString());
         }
 
-        public string MensagemSucesso(string mensagem)
+        /// <summary>
+        /// Salva os dados preenchido da tela de "Cadastrar Usuário"
+        /// </summary>
+        public void CliqueCriarUsuario()
+        {
+            ButtonCreate.Click();
+        }
+        /// <summary>
+        /// Retorna mensagem após salvar os dados da tela "Cadastrar Usuário"
+        /// </summary>
+        /// <returns>
+        /// string MessageNotice.Text
+        /// </returns>
+        public string RetornoMensagemSucesso()
         {
             // criar validação de sucesso
-
-            return null;
+            return MessageNotice.Text;
         }
     }
 }

@@ -11,16 +11,16 @@ using SeleniumBasicProjectConfiguration.Helpers;
 
 namespace SeleniumUnitTestProjetc.Test
 {
-    [TestClass]
+    //[TestClass]
     public class TabelaTest : HookInitialize
     {
-        [TestMethod]
+        //[TestMethod]
         public void VerificaTabela() 
         {
-            PaginaCorrente = GetInstancia<PrincipalPage>();
+            CurrentPage = GetInstance<PrincipalPage>();
             LogHelpers.Write("Acesso a página principal");
-            PaginaCorrente = PaginaCorrente.As<PrincipalPage>().ClickButtonComecarAutomacaoWeb();
-            PaginaCorrente = PaginaCorrente.As<HomePage>().ClickLinkTabela();
+            CurrentPage = CurrentPage.As<PrincipalPage>().ClickButtonComecarAutomacaoWeb();
+            CurrentPage = CurrentPage.As<HomePage>().ClickLinkTabela();
 
             /*var tabela = PaginaCorrente.As<TabelaPage>().ReceberElementosTabela();
 

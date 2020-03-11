@@ -12,17 +12,17 @@ using SeleniumBasicProjectConfiguration.Helpers;
 
 namespace SeleniumUnitTestProjetc.Test
 {
-    [TestClass]
+   // [TestClass]
     public class ListaDeUsuarioTest : HookInitialize
     {
-        [TestMethod]
+       // [TestMethod]
         public void ListandoUsuario()
         {
 
-            PaginaCorrente = GetInstancia<PrincipalPage>();
-            PaginaCorrente = PaginaCorrente.As<PrincipalPage>().ClickButtonComecarAutomacaoWeb();
+            CurrentPage = GetInstance<PrincipalPage>();
+            CurrentPage = CurrentPage.As<PrincipalPage>().ClickButtonComecarAutomacaoWeb();
 
-            PaginaCorrente = PaginaCorrente.As<HomePage>().ClickLinkListaUsario();
+            CurrentPage = CurrentPage.As<HomePage>().ClickLinkListaUsario();
             //PaginaCorrente.As<ListaDeUsuariosPage>().DeletarNome("");
 
             /*var tabela = PaginaCorrente.As<ListaDeUsuariosPage>().ReceberElementosTabela();
