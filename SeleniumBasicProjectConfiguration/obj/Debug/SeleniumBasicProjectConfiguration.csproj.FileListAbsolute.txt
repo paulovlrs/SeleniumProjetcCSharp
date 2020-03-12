@@ -218,8 +218,11 @@ C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\Seleniu
 C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumBasicProjectConfiguration\bin\Debug\WebDriver.Support.dll
 C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumBasicProjectConfiguration\bin\Debug\WebDriver.xml
 C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumBasicProjectConfiguration\bin\Debug\WebDriver.Support.xml
-C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumBasicProjectConfiguration\obj\Debug\SeleniumBasicProjectConfiguration.csprojAssemblyReference.cache
 C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumBasicProjectConfiguration\obj\Debug\SeleniumBasicProjectConfiguration.csproj.CoreCompileInputs.cache
 C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumBasicProjectConfiguration\obj\Debug\SeleniumBasicProjectConfiguration.csproj.CopyComplete
 C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumBasicProjectConfiguration\obj\Debug\SeleniumBasicProjectConfiguration.dll
 C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumBasicProjectConfiguration\obj\Debug\SeleniumBasicProjectConfiguration.pdb
+C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumBasicProjectConfiguration\obj\Debug\SeleniumBasicProjectConfiguration.csprojAssemblyReference.cache
+C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumBasicProjectConfiguration\bin\Debug\Newtonsoft.Json.dll
+C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumBasicProjectConfiguration\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumBasicProjectConfiguration\bin\Debug\Newtonsoft.Json.xml

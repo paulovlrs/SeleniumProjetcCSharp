@@ -8,6 +8,7 @@ using SeleniumExtras.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using SeleniumUnitTestProjetc.Utils;
 using SeleniumBasicProjectConfiguration.Base;
+using SeleniumBasicProjectConfiguration.Extensions;
 
 namespace SeleniumUnitTestProjetc.Pages
 {
@@ -107,7 +108,11 @@ namespace SeleniumUnitTestProjetc.Pages
         /// </summary>
         public NovoUsuarioPage ClickLinkCriarUsuario()
         {
+            //Verifico internamente se os elementos estão presentes
+            LinkFormulario.AssertElementPresent();
             LinkFormulario.Click();
+
+            LinkCriarUsuario.AssertElementPresent();
             LinkCriarUsuario.Click();
             return new NovoUsuarioPage();
         }

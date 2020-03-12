@@ -103,7 +103,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Masculino",
                         "29"});
 #line 8
- testRunner.When("Prencher os dados de entrada", ((string)(null)), table1, "When ");
+ testRunner.When("* Prencher os dados de entrada", ((string)(null)), table1, "When ");
 #line 11
  testRunner.And("Salvar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -113,6 +113,48 @@ this.ScenarioInitialize(scenarioInfo);
                         "Usuário Criado com sucesso"});
 #line 12
  testRunner.Then("O Sistema retorna mensagem", ((string)(null)), table2, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Validar Campos obrigatórios")]
+        [NUnit.Framework.CategoryAttribute("ValidarRegra")]
+        public virtual void ValidarCamposObrigatorios()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validar Campos obrigatórios", null, new string[] {
+                        "ValidarRegra"});
+#line 17
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 18
+ testRunner.Given("Que eu esteja na tela principal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 19
+ testRunner.And("Acesso o cadastro de usuario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Endereco",
+                        "Universidade",
+                        "Profissao",
+                        "Genero",
+                        "Idade"});
+            table3.AddRow(new string[] {
+                        "Rua 1",
+                        "PUC",
+                        "QA Engineer",
+                        "Masculino",
+                        "29"});
+#line 20
+ testRunner.When("Nao Prencher os dados de entrada", ((string)(null)), table3, "When ");
+#line 23
+ testRunner.And("Salvar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Mensagem"});
+            table4.AddRow(new string[] {
+                        "3 errors proibiu que este usuário fosse salvo"});
+#line 24
+ testRunner.Then("O Sistema retorna mensagem", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

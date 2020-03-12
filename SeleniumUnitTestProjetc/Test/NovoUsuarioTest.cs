@@ -9,7 +9,7 @@ namespace SeleniumUnitTestProjetc.Test
     //[TestClass]
     public class NovoUsuarioTest : HookInitialize
     {
-       //[TestMethod]
+        //[TestMethod]
         public void CriandoUsuario()
         {
             // Recupero os elementos da página atual para permitir controlar
@@ -22,16 +22,18 @@ namespace SeleniumUnitTestProjetc.Test
             CurrentPage = CurrentPage.As<HomePage>().ClickLinkCriarUsuario();
             LogHelpers.Write("Acesso a página de criar usuário");
             LogHelpers.PrintScreen();
-            
+
             // Verifico se existe elemento(s)
             CurrentPage.As<NovoUsuarioPage>().VerificaSeElementosDisponiveis();
 
             // Preencho os campos
             CurrentPage.As<NovoUsuarioPage>().PreencherDadosDeEntrada("Paulo Victor L R", "Silva", "teste@teste.com", "Rua 1", "PUC", "QA", "M", 29);
             CurrentPage.As<NovoUsuarioPage>().CliqueCriarUsuario();
-           LogHelpers.Write("Usuário inserido e salvo");
+            LogHelpers.Write("Usuário inserido e salvo");
             //verifico se usuário foi criado com sucesso
-            CurrentPage.As<NovoUsuarioPage>().RetornoMensagemSucesso().Contains("Usuário Criado com sucesso");
+            if (CurrentPage.As<NovoUsuarioPage>().ValidarMensagem("Usuário Criado com sucesso") == false)
+                CurrentPage.As<NovoUsuarioPage>().FalhaExecucao("Usuário não foi criado");
+
             //var a = CurrentPage.As<NovoUsuarioPage>().MensagemSucesso();
             LogHelpers.PrintScreen();
 

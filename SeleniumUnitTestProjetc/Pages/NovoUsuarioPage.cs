@@ -4,6 +4,7 @@ using SeleniumBasicProjectConfiguration.Base;
 using SeleniumBasicProjectConfiguration.Extensions;
 using System;
 using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SeleniumUnitTestProjetc.Pages
 {
@@ -41,7 +42,7 @@ namespace SeleniumUnitTestProjetc.Pages
 
         [FindsBy(How = How.Id, Using = "error_explanation")]
         private IList<IWebElement> MessageErro { get; set; }
-    
+
         [FindsBy(How = How.Id, Using = "notice")]
         IWebElement MessageNotice { get; set; }
 
@@ -58,27 +59,39 @@ namespace SeleniumUnitTestProjetc.Pages
             InputUser_profile.AssertElementPresent();
             InputUser_gender.AssertElementPresent();
             InputUser_age.AssertElementPresent();
-        }        
+        }
 
-        public void MensagemAlerta(string mensagem)
+        /// <summary>
+        /// Retorna falha na execução e informa o motivo
+        /// </summary>
+        /// <param name="message"></param>
+        public void FalhaExecucao(string message)
+        {
+            Assert.Fail(message);
+        }
+
+        /*public bool MensagemAlerta(string mensagem)
         {
             //IList<IWebElement> all = DriverContext.Driver.FindElements(By.Id("error_explanation"));
  
-            String[] allText = new String[MessageErro.Count];
-            int i = 0;
-            
+            //String[] allText = new String[MessageErro.Count];
+            //int i = 0;
+
             // Criar validação da mensagem de erro esperado
             foreach (IWebElement element in MessageErro)
             {
-                allText[i++] = element.Text;
-            }         
-        }
+                //allText[i++] = element.Text;
+                if (element.Text.Contains(mensagem))
+                    return true;
+            }
+            return false;
+        }*/
 
         /// <summary>
         /// Preenche os campos da tela de "Cadastrar usuário".
         /// </summary>
         public void PreencherDadosDeEntrada(string name, string lastName, string email, string address, string university, string profession, string genre, int age)
-        {            
+        {
             InputUser_name.SendKeys(name);
             InputUser_lastname.SendKeys(lastName);
             InputUser_email.SendKeys(email);
@@ -94,9 +107,10 @@ namespace SeleniumUnitTestProjetc.Pages
         /// </summary>
         public void CliqueCriarUsuario()
         {
+            ButtonCreate.AssertElementPresent();
             ButtonCreate.Click();
         }
-        /// <summary>
+        /*/// <summary>
         /// Retorna mensagem após salvar os dados da tela "Cadastrar Usuário"
         /// </summary>
         /// <returns>
@@ -106,6 +120,34 @@ namespace SeleniumUnitTestProjetc.Pages
         {
             // criar validação de sucesso
             return MessageNotice.Text;
+        }
+        public void FalhaExecucao(string mensagem)
+        {
+            Assert.Fail(mensagem);
+        }*/
+
+        /// <summary>
+        /// Valida se a mensagem esperada está sendo exibida e retorna um valor booleano
+        /// </summary>
+        /// <param name="mensagem"></param>
+        /// <returns>bool</returns>
+        public bool ValidarMensagem(string message)
+        {
+            // Verifico se os elementos de mensagens estão preenchidos
+            if (MessageNotice.ReturnAssertElementPresent() != null && MessageNotice.Text.Contains(message))
+            {
+                return true;
+            }
+            else if (MessageErro.ReturnAssertElementListPresent() != null)
+            {
+                foreach (IWebElement element in MessageErro)
+                {
+                    //allText[i++] = element.Text;
+                    if (element.Text.Contains(message))
+                        return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -50,5 +50,45 @@ namespace SeleniumBasicProjectConfiguration.Extensions
                 return false;
             }
         }
+
+        private static bool IsElementListPresent(IList<IWebElement> element)
+        {
+            try
+            {
+                int ele = element.Count;
+                if (ele > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// Verifica se existe a lista de elementos e retorna a mesma lista de elementos
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public static IList<IWebElement> ReturnAssertElementListPresent(this IList<IWebElement> element)
+        {
+            if (!IsElementListPresent(element))
+                return null;
+            else
+                return element;
+        }
+        /// <summary>
+        /// Verifica se elemento está presente e retorna o mesmo elemento
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public static IWebElement ReturnAssertElementPresent(this IWebElement element)
+        {
+            if (!IsElementPresent(element))
+                return null;
+            else
+                return element;
+        }
     }
 }

@@ -5,13 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using TechTalk.SpecFlow;
 
 namespace SeleniumBasicProjectConfiguration.Base
 {
     public class BaseDriver
     {
         private IWebDriver _driver { get; set; }
-        public BasePage CurrentPage { get; set; }
+        public BasePage CurrentPage
+        {
+            // Essa alteração permite que não seja passada uma referência nula, pois estava perdendo a referência.
+            get
+            {
+                return (BasePage)ScenarioContext.Current["currentPage"];
+            }
+            set
+            {
+                ScenarioContext.Current["currentPage"] = value;
+            }
+        }
 
         // instancia generica de página
         protected TPage GetInstance<TPage>() where TPage : BasePage, new()

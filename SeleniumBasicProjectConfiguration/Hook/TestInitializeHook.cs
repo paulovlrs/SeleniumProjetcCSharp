@@ -65,6 +65,9 @@ namespace SeleniumBasicProjectConfiguration.Hook
         public static void CloseBrowser()
         {
             DriverContext.Driver.Close();
+
+            // Adicionado o Quit() pois não estava fechando o WebDriver usando apenas o Close()
+            DriverContext.Driver.Quit();
         }
 
         public enum BrowserType

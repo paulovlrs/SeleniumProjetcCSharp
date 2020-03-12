@@ -17,27 +17,8 @@ namespace SeleniumUnitTestProjetc.Steps
         public void GivenQueEuEstejaNaTelaPrincipal()
         {
             Navigate();
-            CurrentPage = GetInstance<PrincipalPage>();            
-        }
-
-        [Given(@"Acesso o cadastro de usuario")]
-        public void GivenAcessoOCadastroDeUsuario()
-        {
+            CurrentPage = GetInstance<PrincipalPage>();
             CurrentPage = CurrentPage.As<PrincipalPage>().ClickButtonComecarAutomacaoWeb();
-            CurrentPage = CurrentPage.As<HomePage>().ClickLinkCriarUsuario();
-
-            // Verifico se existe elemento(s)
-            CurrentPage.As<NovoUsuarioPage>().VerificaSeElementosDisponiveis();
-        }
-
-        [When(@"Prencher os dados de entrada")]
-        public void WhenPrencherOsDadosDeEntrada(Table table)
-        {
-            // Necessário o pacote *Specflow.Assist.Dynamic*
-            dynamic data = table.CreateDynamicInstance();
-            // Os nomes dos parametros devem ser exatamente iguais ao da tabela da feature
-            CurrentPage.As<NovoUsuarioPage>().PreencherDadosDeEntrada(data.Nome, data.UltimoNome, data.Email, data.Endereco, data.Universidade, data.Profissao, data.Genero, data.Idade);
-                //"Paulo Victor L R", "Silva", "teste@teste.com", "Rua 1", "PUC", "QA", "M", 29);
         }
 
         [When(@"Salvar")]
@@ -49,11 +30,16 @@ namespace SeleniumUnitTestProjetc.Steps
         [Then(@"O Sistema retorna mensagem")]
         public void ThenOSistemaRetornaMensagem(Table table)
         {
-            dynamic data = table.CreateDynamicInstance();
-            if (CurrentPage.As<NovoUsuarioPage>().RetornoMensagemSucesso().Contains(data.Mensagem))
-                System.Console.Write("Sucesso");
-            
-        }
+            // Alterar o método para se comportar como o método de acesso, validar de acordo com o tipo de retorno que desejo
+            // Essa mudança me garantira performance nos teste
 
+            dynamic data = table.CreateDynamicInstance();
+
+            // realizo a validação das mensagens de sucesso ou alerta
+            if (CurrentPage.As<NovoUsuarioPage>().ValidarMensagem(data.Mensagem) == true)
+                System.Console.Write("Sucesso");
+            else
+                CurrentPage.As<NovoUsuarioPage>().FalhaExecucao("Mensagem não foi exibida");
+        }
     }
 }
