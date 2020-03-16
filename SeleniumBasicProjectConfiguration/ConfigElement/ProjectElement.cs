@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumBasicProjectConfiguration.ConfigElement
 {
-    public class SeleniumTestConfiguration : ConfigurationSection
+    public class ProjectElement : ConfigurationSection
     {
         [ConfigurationProperty("name", IsRequired = true)]
         public string Name
