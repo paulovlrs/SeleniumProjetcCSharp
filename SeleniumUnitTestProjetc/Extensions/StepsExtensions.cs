@@ -1,4 +1,5 @@
 ﻿using SeleniumBasicProjectConfiguration.Base;
+using SeleniumBasicProjectConfiguration.Helpers;
 using SeleniumUnitTestProjetc.Pages;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace SeleniumUnitTestProjetc.Extensions
         [Given(@"Acesso o (.*)")]
         public void GivenAcessoO(string pageName)
         {
-            // Dessa forma permite que o acesso seja genérico
+            // Verifico o tipo de acesso, tornando génerico o direcionamento de páginas
             if (pageName == "cadastro de usuario")
             {
                 CurrentPage = CurrentPage.As<HomePage>().ClickLinkCriarUsuario();
@@ -34,7 +35,7 @@ namespace SeleniumUnitTestProjetc.Extensions
         {
             // Devido a necessidade informar uma valor, decidi colocar o valor "*", como um simbolo de preencher todos os campos
 
-            // Necessário o pacote *Specflow.Assist.Dynamic*
+            // Necessário o pacote *Specflow.Assist.Dynamic* para realizar a criação de variáveis
             dynamic data = table.CreateDynamicInstance();
 
             if (infoData == "*")
@@ -48,6 +49,8 @@ namespace SeleniumUnitTestProjetc.Extensions
                 // Não preencho os dados obrigatório
                 CurrentPage.As<NovoUsuarioPage>().PreencherDadosDeEntrada("", "", "", data.Endereco, data.Universidade, data.Profissao, data.Genero, data.Idade);
             }
+            LogHelpers.Write("Prencho os dados de entrada");
+            LogHelpers.PrintScreen();
         }
     }
 }

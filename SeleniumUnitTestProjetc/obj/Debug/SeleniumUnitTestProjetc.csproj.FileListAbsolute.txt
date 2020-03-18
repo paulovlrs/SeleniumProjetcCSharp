@@ -243,6 +243,7 @@ C:\Users\paulo\OneDrive\Automação\Selenium Avançado\TreinamentoSeleniumAvanca
 C:\Users\paulo\OneDrive\Automação\Selenium Avançado\TreinamentoSeleniumAvancado\SeleniumUnitTestProjetc\obj\Debug\SeleniumUnitTestProjetc.dll
 C:\Users\paulo\OneDrive\Automação\Selenium Avançado\TreinamentoSeleniumAvancado\SeleniumUnitTestProjetc\obj\Debug\SeleniumUnitTestProjetc.pdb
 C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumUnitTestProjetc\bin\Debug\Config\GlobalConfig.xml
+C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumUnitTestProjetc\bin\Debug\App.config
 C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumUnitTestProjetc\bin\Debug\NUnit3.TestAdapter.dll
 C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumUnitTestProjetc\bin\Debug\NUnit3.TestAdapter.pdb
 C:\Users\paulo.silva\OneDrive - Simply\Treinamento\SeleniumProjetcCSharp\SeleniumUnitTestProjetc\bin\Debug\nunit.engine.dll

@@ -8,12 +8,12 @@
     <TestType>SmokeTest</TestType>
     <!--Possível Flag Selenium, Y, N-->
     <IsLog>Y</IsLog>    
-    <LogPath>C:\\Users\\paulo.silva\\OneDrive - Simply\\Treinamento\\TreinamentoSeleniumAvancado\\Log</LogPath>
+    <LogPath>C:\\Log\\</LogPath>
     <BuildName>DemoBuild</BuildName>
     <!--Possível Flag Selenium, Y, N-->
     <IsReport>N</IsReport>
     <!--Possível Flag Selenium, Specflow-->
-    <UserName>TreinamentoSeleniumAvancado</UserName>
+    <UserName>SeleniumBasicProjectConfiguration</UserName>
     <Technology>Selenium</Technology>
   </RunSettings>
 </TreinamentoSeleniumAvancado>

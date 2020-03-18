@@ -19,14 +19,14 @@ namespace SeleniumBasicProjectConfiguration.Hook
         public void Initialize()
         {
             // Atribuo as configurações do XML
-            ConfigReader.SetFrameworkSettings();
+            ConfigReader.SetFrameworkSettings("staging");
 
             // Inicia a criação de arquivo de Log
             //LogHelpers.NameTestCase(nameTestCase);
             LogHelpers.CreateLogFile();
 
             // Inicio e maximizo o navegador 
-            OpenBrowser(BrowserType.Chrome);
+            OpenBrowser(Settings.BrowserType);
             Maximizar();
             LogHelpers.Write("Aberto o browser !!!");
         }

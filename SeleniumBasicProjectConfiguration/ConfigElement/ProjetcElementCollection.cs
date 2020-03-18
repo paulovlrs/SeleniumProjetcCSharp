@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace SeleniumBasicProjectConfiguration.ConfigElement
 {
-    [ConfigurationCollection(typeof(ProjectConfiguration), AddItemName ="testeSettings", CollectionType =ConfigurationElementCollectionType.BasicMap)]
-    public class ProjetcElementCollection : ConfigurationElementCollection
+    // Realiza a leitura de todas as tag "testSetting" que se encotra dentro da tag "ProjectConfiguration >> testSettings" do xml(App.Config do SeleniumUnitTestProjetc)
+    [ConfigurationCollection(typeof(ProjectElement), AddItemName = "testSetting", CollectionType = ConfigurationElementCollectionType.BasicMap)]
+    public class ProjectElementCollection : ConfigurationElementCollection
     {
         protected override ConfigurationElement CreateNewElement()
         {
+            // Retorna a classe para instanciar o objeto
             return new ProjectElement();
         }
 

@@ -1,4 +1,5 @@
 ﻿using SeleniumBasicProjectConfiguration.Base;
+using SeleniumBasicProjectConfiguration.Helpers;
 using SeleniumUnitTestProjetc.Pages;
 using System;
 using System.Collections.Generic;
@@ -19,12 +20,15 @@ namespace SeleniumUnitTestProjetc.Steps
             Navigate();
             CurrentPage = GetInstance<PrincipalPage>();
             CurrentPage = CurrentPage.As<PrincipalPage>().ClickButtonComecarAutomacaoWeb();
+
         }
 
         [When(@"Salvar")]
         public void WhenSalvar()
         {
             CurrentPage.As<NovoUsuarioPage>().CliqueCriarUsuario();
+            LogHelpers.Write("Salvar");
+            LogHelpers.PrintScreen();
         }
 
         [Then(@"O Sistema retorna mensagem")]
@@ -40,6 +44,8 @@ namespace SeleniumUnitTestProjetc.Steps
                 System.Console.Write("Sucesso");
             else
                 CurrentPage.As<NovoUsuarioPage>().FalhaExecucao("Mensagem não foi exibida");
+            LogHelpers.Write("Mensagem de retorno do sistema");
+            LogHelpers.PrintScreen();
         }
     }
 }
