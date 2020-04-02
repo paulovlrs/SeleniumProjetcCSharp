@@ -139,7 +139,16 @@ namespace SeleniumUnitTestProjetc.Pages
             LinkTabela.Click();
             return new TabelaPage();
         }
-        public void ClickLinkTextos() { }
+        public TextosPage ClickLinkTextos()
+        {
+            //Verifico internamente se os elementos estão presentes
+            LinkBuscaElementos.AssertElementPresent();
+            LinkBuscaElementos.Click();
+
+            LinkTextos.AssertElementPresent();
+            LinkTextos.Click();
+            return new TextosPage();
+        }
         public void ClickLinkUploadDeArquivo() { }
 
     }

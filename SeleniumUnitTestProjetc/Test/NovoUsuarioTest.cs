@@ -24,7 +24,7 @@ namespace SeleniumUnitTestProjetc.Test
             LogHelpers.PrintScreen();
 
             // Verifico se existe elemento(s)
-            CurrentPage.As<NovoUsuarioPage>().VerificaSeElementosDisponiveis();
+            CurrentPage.As<NovoUsuarioPage>().VerificaSeElementosDisponiveisCadastroUsuario();
 
             // Preencho os campos
             CurrentPage.As<NovoUsuarioPage>().PreencherDadosDeEntrada("Paulo Victor L R", "Silva", "teste@teste.com", "Rua 1", "PUC", "QA", "M", 29);

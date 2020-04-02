@@ -39,8 +39,10 @@ namespace SeleniumUnitTestProjetc.Steps
 
             dynamic data = table.CreateDynamicInstance();
 
-            // realizo a validação das mensagens de sucesso ou alerta
-            if (CurrentPage.As<NovoUsuarioPage>().ValidarMensagem(data.Mensagem) == true)
+            // realizo a validação das mensagens de sucesso ou alerta, separado no dentro do método por questão de perfomance
+            // antes era uma verificação genérica, ocasionando demora na execução do teste
+
+            if (CurrentPage.As<NovoUsuarioPage>().ValidarMensagem(data.Mensagem) == true)         
                 System.Console.Write("Sucesso");
             else
                 CurrentPage.As<NovoUsuarioPage>().FalhaExecucao("Mensagem não foi exibida");

@@ -179,7 +179,9 @@
     <Compile Include="Pages\NovoUsuarioPage.cs" />
     <Compile Include="Pages\PrincipalPage.cs" />
     <Compile Include="Pages\TabelaPage.cs" />
+    <Compile Include="Pages\TextosPage.cs" />
     <Compile Include="Steps\NovoUsuarioSteps.cs" />
+    <Compile Include="Steps\TextosSteps.cs" />
     <Compile Include="Test\ListaDeUsuarioTest.cs" />
     <Compile Include="Test\NovoUsuarioTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,6 +196,7 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>NovoUsuario.feature.cs</LastGenOutput>
     </None>
+    <None Include="Feature\Textos.feature" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

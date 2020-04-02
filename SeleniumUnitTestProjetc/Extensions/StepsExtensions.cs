@@ -26,7 +26,14 @@ namespace SeleniumUnitTestProjetc.Extensions
                 CurrentPage = CurrentPage.As<HomePage>().ClickLinkCriarUsuario();
 
                 // Verifico se existe elemento(s)
-                CurrentPage.As<NovoUsuarioPage>().VerificaSeElementosDisponiveis();
+                CurrentPage.As<NovoUsuarioPage>().VerificaSeElementosDisponiveisCadastroUsuario();
+            }
+            else if (pageName == "Textos")
+            {
+                CurrentPage = CurrentPage.As<HomePage>().ClickLinkTextos();
+
+                // Verifico se existe elemento(s)
+                //CurrentPage.As<NovoUsuarioPage>().VerificaSeElementosDisponiveisCadastroUsuario();
             }
         }
 

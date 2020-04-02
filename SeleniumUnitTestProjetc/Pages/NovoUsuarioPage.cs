@@ -49,7 +49,7 @@ namespace SeleniumUnitTestProjetc.Pages
         /// <summary>
         /// Verifica se os campos da tela "Cadastrar usuário" estão disponíveis.
         /// </summary>
-        internal void VerificaSeElementosDisponiveis()
+        internal void VerificaSeElementosDisponiveisCadastroUsuario()
         {
             InputUser_name.AssertElementPresent();
             InputUser_lastname.AssertElementPresent();
@@ -134,11 +134,11 @@ namespace SeleniumUnitTestProjetc.Pages
         public bool ValidarMensagem(string message)
         {
             // Verifico se os elementos de mensagens estão preenchidos
-            if (MessageNotice.ReturnAssertElementPresent() != null && MessageNotice.Text.Contains(message))
+            if (message == "Usuário Criado com sucesso" && MessageNotice.ReturnAssertElementPresent() != null && MessageNotice.Text.Contains(message))
             {
                 return true;
             }
-            else if (MessageErro.ReturnAssertElementListPresent() != null)
+            else if (message == "3 errors proibiu que este usuário fosse salvo" && MessageErro.ReturnAssertElementListPresent() != null)
             {
                 foreach (IWebElement element in MessageErro)
                 {
