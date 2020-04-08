@@ -13,15 +13,8 @@ namespace SeleniumUnitTestProjetc.Pages
 {
     public class ListaDeUsuariosPage : BasePage
     {
-        /*[FindsBy (How = How.XPath, Using = "//td[contains(text(),'"+x+"')]")]
-        private IWebElement LabelNome { get; set; }*/
-
-        /*[FindsBy(How = How.XPath, Using = "/html/body/div[3]/div/table/tbody/tr[1]/td[11]/a")]
-        private IWebElement DeletarPrimeiraOpcao { get; }*/
-
-        [FindsBy(How = How.XPath, Using = "//*[@class='highlight striped responsive-table']")]
-        private IWebElement tabela { get; set; }
-
+        private IWebElement tabela => DriverContext.Driver.FindElement(By.XPath("//*[@class='highlight striped responsive-table']"));
+  
         public IWebElement ReceberElementosTabela()
         {
             return tabela;

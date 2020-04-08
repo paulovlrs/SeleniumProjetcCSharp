@@ -27,7 +27,7 @@ namespace SeleniumUnitTestProjetc.Steps
         public void WhenSalvar()
         {
             CurrentPage.As<NovoUsuarioPage>().CliqueCriarUsuario();
-            LogHelpers.Write("Salvar");
+            //LogHelpers.Write("Salvar");
             LogHelpers.PrintScreen();
         }
 
@@ -42,11 +42,19 @@ namespace SeleniumUnitTestProjetc.Steps
             // realizo a validação das mensagens de sucesso ou alerta, separado no dentro do método por questão de perfomance
             // antes era uma verificação genérica, ocasionando demora na execução do teste
 
-            if (CurrentPage.As<NovoUsuarioPage>().ValidarMensagem(data.Mensagem) == true)         
-                System.Console.Write("Sucesso");
+            if (CurrentPage.As<NovoUsuarioPage>().ValidarMensagem(data.Mensagem) == true)
+            {
+               // System.Console.Write("Usuário adicionado");
+                ReportHelpers.Sucesso("Mensagem exibida com sucesso");
+            }
             else
-                CurrentPage.As<NovoUsuarioPage>().FalhaExecucao("Mensagem não foi exibida");
-            LogHelpers.Write("Mensagem de retorno do sistema");
+            {
+                CurrentPage.As<NovoUsuarioPage>().FalhaExecucao("Não foi possível exibir a mensagem");
+                ReportHelpers.Falha("Não foi possível exibir a mensagem");
+               // LogHelpers.Write("Não foi possível adicionar o usuário");
+            }
+            ReportHelpers.Log("Finalizado teste");
+           // LogHelpers.Write("Finalizado teste");
             LogHelpers.PrintScreen();
         }
     }

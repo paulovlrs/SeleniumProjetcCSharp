@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using SeleniumBasicProjectConfiguration.Base;
@@ -20,15 +22,10 @@ namespace SeleniumBasicProjectConfiguration.Hook
         {
             // Atribuo as configurações do XML
             ConfigReader.SetFrameworkSettings("staging");
-
-            // Inicia a criação de arquivo de Log
-            //LogHelpers.NameTestCase(nameTestCase);
-            LogHelpers.CreateLogFile();
-
+           
             // Inicio e maximizo o navegador 
             OpenBrowser(Settings.BrowserType);
             Maximizar();
-            LogHelpers.Write("Aberto o browser !!!");
         }
 
         // Definir o browser que será usado

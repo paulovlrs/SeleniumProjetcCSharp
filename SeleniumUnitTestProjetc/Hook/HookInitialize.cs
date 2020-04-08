@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SeleniumBasicProjectConfiguration.Helpers;
 using SeleniumBasicProjectConfiguration.Hook;
 using TechTalk.SpecFlow;
 
@@ -14,7 +15,6 @@ namespace SeleniumUnitTestProjetc.Hook
         public HookInitialize() : base(BrowserType.Chrome)
         {
             Initialize();
-            //Navigate();
         }
 
         [BeforeFeature]
@@ -26,6 +26,7 @@ namespace SeleniumUnitTestProjetc.Hook
         [AfterFeature]
         public static void TestEnd()
         {
+            ReportHelpers.Flush();
             CloseBrowser();
         }
     }

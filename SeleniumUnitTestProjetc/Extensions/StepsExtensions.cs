@@ -1,4 +1,5 @@
-﻿using SeleniumBasicProjectConfiguration.Base;
+﻿using NUnit.Framework;
+using SeleniumBasicProjectConfiguration.Base;
 using SeleniumBasicProjectConfiguration.Helpers;
 using SeleniumUnitTestProjetc.Pages;
 using System;
@@ -14,12 +15,29 @@ namespace SeleniumUnitTestProjetc.Extensions
     [Binding]
     public class StepsExtensions : BaseSteps
     {
+        internal string TestCase;
         // Como são métodos genéricos e reaprovetaveis em diversos cenários de teste
         // Dessa forma permite uma padronização
 
         [Given(@"Acesso o (.*)")]
         public void GivenAcessoO(string pageName)
         {
+            // Recebo o nome do caso de teste sendo executado
+            TestCase = TestContext.CurrentContext.Test.Name;
+
+            LogHelpers.NameTestCase(TestCase);
+            
+            // Inicia a criação de arquivo de Log
+            LogHelpers.CreateLogFile();
+
+            // Configuração inicial do Relatório
+            ReportHelpers.ConfiguraRelatorio();
+
+            // Crio o caso de teste no relatório
+            ReportHelpers.CriarTeste(TestCase);
+
+            ReportHelpers.Log("Acesso a página " + pageName);
+            LogHelpers.Write("Acesso a página " + pageName);
             // Verifico o tipo de acesso, tornando génerico o direcionamento de páginas
             if (pageName == "cadastro de usuario")
             {
@@ -31,9 +49,6 @@ namespace SeleniumUnitTestProjetc.Extensions
             else if (pageName == "Textos")
             {
                 CurrentPage = CurrentPage.As<HomePage>().ClickLinkTextos();
-
-                // Verifico se existe elemento(s)
-                //CurrentPage.As<NovoUsuarioPage>().VerificaSeElementosDisponiveisCadastroUsuario();
             }
         }
 
@@ -56,6 +71,7 @@ namespace SeleniumUnitTestProjetc.Extensions
                 // Não preencho os dados obrigatório
                 CurrentPage.As<NovoUsuarioPage>().PreencherDadosDeEntrada("", "", "", data.Endereco, data.Universidade, data.Profissao, data.Genero, data.Idade);
             }
+            ReportHelpers.Log("Prencho os dados de entrada");
             LogHelpers.Write("Prencho os dados de entrada");
             LogHelpers.PrintScreen();
         }

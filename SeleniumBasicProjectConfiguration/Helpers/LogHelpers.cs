@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using SeleniumBasicProjectConfiguration.Base;
 using SeleniumBasicProjectConfiguration.Config;
+using SeleniumBasicProjectConfiguration.Hook;
 
 namespace SeleniumBasicProjectConfiguration.Helpers
 {
@@ -20,10 +21,9 @@ namespace SeleniumBasicProjectConfiguration.Helpers
 
         private static void DiretoryName()
         {
-            //diretorio = (@"C:\Log\" + "\\" + _logFileName + "\\");
-
             // Pego as configurações diretamente do XML(GlobalConfig.xml)
             diretorio = (Settings.LogPath + _logFileName + "\\");
+            ReportHelpers.DiretoryNameReport(diretorio);
         }
 
         // criar arquivo de log

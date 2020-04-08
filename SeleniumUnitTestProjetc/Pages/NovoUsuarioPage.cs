@@ -10,41 +10,19 @@ namespace SeleniumUnitTestProjetc.Pages
 {
     public class NovoUsuarioPage : BasePage
     {
-        [FindsBy(How = How.Id, Using = "user_name")]
-        private IWebElement InputUser_name { get; set; }
-
-        [FindsBy(How = How.Id, Using = "user_lastname")]
-        private IWebElement InputUser_lastname { get; set; }
-
-        [FindsBy(How = How.Id, Using = "user_email")]
-        private IWebElement InputUser_email { get; set; }
-
-        [FindsBy(How = How.Id, Using = "user_address")]
-        private IWebElement InputUser_address { get; set; }
-
-        [FindsBy(How = How.Id, Using = "user_university")]
-        private IWebElement InputUser_university { get; set; }
-
-        [FindsBy(How = How.Id, Using = "user_profile")]
-        private IWebElement InputUser_profile { get; set; }
-
-        [FindsBy(How = How.Id, Using = "user_gender")]
-        private IWebElement InputUser_gender { get; set; }
-
-        [FindsBy(How = How.Id, Using = "user_age")]
-        private IWebElement InputUser_age { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = "[class = 'actions btn waves-effect green']")]
-        private IWebElement ButtonCreate { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = "[class = 'btn waves-light red']")]
-        private IWebElement ButtonBack { get; set; }
-
-        [FindsBy(How = How.Id, Using = "error_explanation")]
-        private IList<IWebElement> MessageErro { get; set; }
-
-        [FindsBy(How = How.Id, Using = "notice")]
-        IWebElement MessageNotice { get; set; }
+        // Elementos da página
+        private IWebElement InputUser_name => DriverContext.Driver.FindElement(By.Id("user_name"));
+        private IWebElement InputUser_lastname => DriverContext.Driver.FindElement(By.Id("user_lastname"));
+        private IWebElement InputUser_email => DriverContext.Driver.FindElement(By.Id("user_email"));
+        private IWebElement InputUser_address => DriverContext.Driver.FindElement(By.Id("user_address"));
+        private IWebElement InputUser_university => DriverContext.Driver.FindElement(By.Id("user_university"));
+        private IWebElement InputUser_profile => DriverContext.Driver.FindElement(By.Id("user_profile"));
+        private IWebElement InputUser_gender => DriverContext.Driver.FindElement(By.Id("user_gender"));
+        private IWebElement InputUser_age => DriverContext.Driver.FindElement(By.Id("user_age"));
+        private IWebElement ButtonCreate => DriverContext.Driver.FindElement(By.CssSelector("[class = 'actions btn waves-effect green']"));
+        private IWebElement ButtonBack => DriverContext.Driver.FindElement(By.CssSelector("[class = 'btn waves-light red']"));
+        private IList<IWebElement> MessageErro => DriverContext.Driver.FindElements(By.Id("error_explanation"));
+        IWebElement MessageNotice => DriverContext.Driver.FindElement(By.Id("notice"));
 
         /// <summary>
         /// Verifica se os campos da tela "Cadastrar usuário" estão disponíveis.
@@ -70,23 +48,6 @@ namespace SeleniumUnitTestProjetc.Pages
             Assert.Fail(message);
         }
 
-        /*public bool MensagemAlerta(string mensagem)
-        {
-            //IList<IWebElement> all = DriverContext.Driver.FindElements(By.Id("error_explanation"));
- 
-            //String[] allText = new String[MessageErro.Count];
-            //int i = 0;
-
-            // Criar validação da mensagem de erro esperado
-            foreach (IWebElement element in MessageErro)
-            {
-                //allText[i++] = element.Text;
-                if (element.Text.Contains(mensagem))
-                    return true;
-            }
-            return false;
-        }*/
-
         /// <summary>
         /// Preenche os campos da tela de "Cadastrar usuário".
         /// </summary>
@@ -110,21 +71,6 @@ namespace SeleniumUnitTestProjetc.Pages
             ButtonCreate.AssertElementPresent();
             ButtonCreate.Click();
         }
-        /*/// <summary>
-        /// Retorna mensagem após salvar os dados da tela "Cadastrar Usuário"
-        /// </summary>
-        /// <returns>
-        /// string MessageNotice.Text
-        /// </returns>
-        public string RetornoMensagemSucesso()
-        {
-            // criar validação de sucesso
-            return MessageNotice.Text;
-        }
-        public void FalhaExecucao(string mensagem)
-        {
-            Assert.Fail(mensagem);
-        }*/
 
         /// <summary>
         /// Valida se a mensagem esperada está sendo exibida e retorna um valor booleano

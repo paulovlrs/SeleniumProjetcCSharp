@@ -11,12 +11,9 @@ namespace SeleniumUnitTestProjetc.Pages
 {
     public class PrincipalPage : BasePage
     {
-        // Objetos da Página
-        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Começar Automação Web')]")]
-        private IWebElement buttonComecarAutomacaoWeb { get; set; }
-
-        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Começar Automação de Api')]")]
-        private IWebElement buttonComecarAutomacaoAPI { get; set; }
+        // Elementos da Página
+        private IWebElement buttonComecarAutomacaoWeb => DriverContext.Driver.FindElement(By.XPath("//a[contains(text(),'Começar Automação Web')]"));
+        private IWebElement buttonComecarAutomacaoAPI => DriverContext.Driver.FindElement(By.XPath("//a[contains(text(),'Começar Automação de Api')]"));
 
         /// <summary>
         /// Acessa a página de "Começar Automação".

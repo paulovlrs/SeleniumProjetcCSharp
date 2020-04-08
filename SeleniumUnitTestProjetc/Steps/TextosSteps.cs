@@ -1,6 +1,8 @@
 ﻿using SeleniumBasicProjectConfiguration.Base;
-using System;
+using SeleniumBasicProjectConfiguration.Helpers;
+using SeleniumUnitTestProjetc.Pages;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace SeleniumUnitTestProjetc.Steps
 {
@@ -8,15 +10,37 @@ namespace SeleniumUnitTestProjetc.Steps
     public class TextosSteps : BaseSteps
     {
         [When(@"clicar no link da reportagem")]
-        public void WhenClicarNoLinkDaReportagem()
+        public void WhenClicarNoLinkDaReportagem(Table table)
         {
-            ScenarioContext.Current.Pending();
+            CurrentPage.As<TextosPage>().ClickNews();
+            ReportHelpers.Log("Acesso a página");
+            LogHelpers.Write("Acesso a página");
+            CurrentPage = CurrentPage.As<TextosPage>().VisualizarReportagem();
+            ReportHelpers.Log("Clico na reportagem");
+            LogHelpers.Write("Clico na reportagem");
         }
-        
+
         [Then(@"Devo ser redicerionado para a pagina do medium")]
-        public void ThenDevoSerRedicerionadoParaAPaginaDoMedium()
+        public void ThenDevoSerRedicerionadoParaAPaginaDoMedium(Table table)
         {
-            ScenarioContext.Current.Pending();
+            ReportHelpers.Log("Acesso a página do Medium");
+            // Necessário o pacote *Specflow.Assist.Dynamic* para realizar a criação de variáveis
+            dynamic data = table.CreateDynamicInstance();
+
+            // Os nomes dos parametros devem ser exatamente iguais ao da tabela da feature
+            if (CurrentPage.As<MediumPage>().VerificaNomeAutor(data.Autor) == true)
+            {
+                ReportHelpers.Sucesso("Autor reconhecido");
+                //LogHelpers.Write("Autor reconhecido");
+            }
+            else
+            {
+                ReportHelpers.Falha("Não foi exibido o nome do autor");
+                // LogHelpers.Write("Não foi exibido o nome do autor");
+            }
+            ReportHelpers.Log("Finalizado o cenário");
+            LogHelpers.Write("Finalizado o cenário");
+            LogHelpers.PrintScreen();
         }
     }
 }
