@@ -20,7 +20,6 @@ namespace SeleniumUnitTestProjetc.Steps
             Navigate();
             CurrentPage = GetInstance<PrincipalPage>();
             CurrentPage = CurrentPage.As<PrincipalPage>().ClickButtonComecarAutomacaoWeb();
-
         }
 
         [When(@"Salvar")]

@@ -32,7 +32,7 @@ namespace SeleniumUnitTestProjetc.Test
             // Informo <quantidade> de colunas, a <coluna> para se buscar o valor, <valor> procurado e <ação>
             HtmlTableHelpers.PerformActionOnCell("9", "Nome", "AAA", "delete");
             */
-            CloseBrowser();
+            FinalizarDriver();
         }
     }
 }

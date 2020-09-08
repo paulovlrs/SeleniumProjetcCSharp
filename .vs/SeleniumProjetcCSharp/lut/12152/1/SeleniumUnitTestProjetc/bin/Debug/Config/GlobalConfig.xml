@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TreinamentoSeleniumAvancado>
+  <RunSettings>
+    <AUT>https://automacaocombatista.herokuapp.com/home/index</AUT>
+    <!--Possível Flag Browser Chrome, FireFox, IE-->
+    <Browser>Chrome</Browser>
+    <!--Possível Flag Fumaça, Regressão, Unitário-->
+    <TestType>SmokeTest</TestType>
+    <!--Possível Flag Selenium, Y, N-->
+    <IsLog>Y</IsLog>    
+    <LogPath>C:\\Log\\</LogPath>
+    <BuildName>DemoBuild</BuildName>
+    <!--Possível Flag Selenium, Y, N-->
+    <IsReport>N</IsReport>
+    <!--Possível Flag Selenium, Specflow-->
+    <UserName>SeleniumBasicProjectConfiguration</UserName>
+    <Technology>Selenium</Technology>
+  </RunSettings>
+</TreinamentoSeleniumAvancado>

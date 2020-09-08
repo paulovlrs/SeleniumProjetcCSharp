@@ -1,0 +1,7 @@
+C:\Users\paulo\OneDrive\Automação\Selenium Avançado\SeleniumProjetcCSharp\.vs\SeleniumProjetcCSharp\lut\0\b\SeleniumBasicProjectConfiguration\bin\Debug\Config\GlobalConfig.xml
+C:\Users\paulo\OneDrive\Automação\Selenium Avançado\SeleniumProjetcCSharp\.vs\SeleniumProjetcCSharp\lut\0\b\SeleniumBasicProjectConfiguration\bin\Debug\App.config
+C:\Users\paulo\OneDrive\Automação\Selenium Avançado\SeleniumProjetcCSharp\.vs\SeleniumProjetcCSharp\lut\0\b\SeleniumBasicProjectConfiguration\bin\Debug\SeleniumBasicProjectConfiguration.dll.config
+C:\Users\paulo\OneDrive\Automação\Selenium Avançado\SeleniumProjetcCSharp\.vs\SeleniumProjetcCSharp\lut\0\b\SeleniumBasicProjectConfiguration\bin\Debug\SeleniumBasicProjectConfiguration.dll
+C:\Users\paulo\OneDrive\Automação\Selenium Avançado\SeleniumProjetcCSharp\.vs\SeleniumProjetcCSharp\lut\0\i\SeleniumBasicProjectConfiguration\Debug\SeleniumBasicProjectConfiguration.csproj.CoreCompileInputs.cache
+C:\Users\paulo\OneDrive\Automação\Selenium Avançado\SeleniumProjetcCSharp\.vs\SeleniumProjetcCSharp\lut\0\i\SeleniumBasicProjectConfiguration\Debug\SeleniumBasicProjectConfiguration.csproj.CopyComplete
+C:\Users\paulo\OneDrive\Automação\Selenium Avançado\SeleniumProjetcCSharp\.vs\SeleniumProjetcCSharp\lut\0\i\SeleniumBasicProjectConfiguration\Debug\SeleniumBasicProjectConfiguration.dll

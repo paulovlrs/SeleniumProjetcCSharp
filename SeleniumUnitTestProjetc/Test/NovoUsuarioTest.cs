@@ -37,7 +37,7 @@ namespace SeleniumUnitTestProjetc.Test
             //var a = CurrentPage.As<NovoUsuarioPage>().MensagemSucesso();
             LogHelpers.PrintScreen();
 
-            CloseBrowser();
+            FinalizarDriver();
         }
     }
 }

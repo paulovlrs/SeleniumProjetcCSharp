@@ -106,7 +106,15 @@ namespace SeleniumUnitTestProjetc.Pages
             LinkTextos.Click();
             return new TextosPage();
         }
-        public void ClickLinkUploadDeArquivo() { }
+        public UploadDeArquivosPage ClickLinkUploadDeArquivo()
+        {
+            LinkOutros.AssertElementPresent();
+            LinkOutros.Click();
+
+            LinkUploadDeArquivo.AssertElementPresent();
+            LinkUploadDeArquivo.Click();
+            return new UploadDeArquivosPage();
+        }
 
     }
 }

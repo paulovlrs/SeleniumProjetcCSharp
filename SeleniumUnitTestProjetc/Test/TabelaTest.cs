@@ -38,7 +38,7 @@ namespace SeleniumUnitTestProjetc.Test
              */
 
 
-            CloseBrowser();
+            FinalizarDriver();
         }
     }
 }
