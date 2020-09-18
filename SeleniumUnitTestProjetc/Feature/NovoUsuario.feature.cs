@@ -101,7 +101,10 @@ namespace SeleniumUnitTestProjetc.Feature
  testRunner.Given("Que eu esteja na tela principal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.And("Acesso o cadastro de usuario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Acesso o menu \"Formulário\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 9
+ testRunner.And("seleciono a opção \"Criar Usuários\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
         
@@ -115,7 +118,7 @@ namespace SeleniumUnitTestProjetc.Feature
                     "cadastroDeUsuario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adicionar Usuário", null, tagsOfScenario, argumentsOfScenario);
-#line 11
+#line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -156,18 +159,18 @@ this.FeatureBackground();
                             "QA Engineer",
                             "Masculino",
                             "29"});
-#line 12
+#line 13
  testRunner.When("Prencher os dados de entrada", ((string)(null)), table1, "When ");
 #line hidden
-#line 15
- testRunner.And("Salvar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+ testRunner.And("Clicar no botão Criar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "Mensagem"});
                 table2.AddRow(new string[] {
                             "Usuário Criado com sucesso"});
-#line 16
- testRunner.Then("O Sistema retorna mensagem", ((string)(null)), table2, "Then ");
+#line 17
+ testRunner.Then("O Sistema retorna a mensagem", ((string)(null)), table2, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -183,7 +186,7 @@ this.FeatureBackground();
                     "ValidarRegra"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validar Campos obrigatórios", null, tagsOfScenario, argumentsOfScenario);
-#line 21
+#line 22
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -224,18 +227,18 @@ this.FeatureBackground();
                             "QA Engineer",
                             "Masculino",
                             "29"});
-#line 22
+#line 23
  testRunner.When("Prencher os dados de entrada", ((string)(null)), table3, "When ");
 #line hidden
-#line 25
- testRunner.And("Salvar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.And("Clicar no botão Criar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                             "Mensagem"});
                 table4.AddRow(new string[] {
                             "3 errors proibiu que este usuário fosse salvo"});
-#line 26
- testRunner.Then("O Sistema retorna mensagem", ((string)(null)), table4, "Then ");
+#line 27
+ testRunner.Then("O Sistema retorna a mensagem", ((string)(null)), table4, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
