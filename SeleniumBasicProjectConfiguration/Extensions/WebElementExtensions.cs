@@ -36,10 +36,21 @@ namespace SeleniumBasicProjectConfiguration.Extensions
     }
     public static void AssertElementPresent(this IWebElement element)
     {
-      WaitContext.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(element));
       if (!IsElementPresent(element))
         throw new Exception(string.Format("Elemento não está presente"));
     }
+    public static void AssertElementClickable(this IWebElement element)
+    {
+      try
+      {
+        WaitContext.WaitDriver.Until(ExpectedConditions.ElementToBeClickable(element));
+      }
+      catch (Exception e)
+      {
+        throw new Exception(string.Format("Não foi possível clicar no elemento, erro: " + e.Message));
+      }
+    }
+
     private static bool IsElementPresent(IWebElement element)
     {
       try
