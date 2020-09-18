@@ -12,11 +12,17 @@ namespace SeleniumUnitTestProjetc.Extensions
   public class StepsExtensions : BaseSteps
   {
     internal string TestCase;
-    // Como são métodos genéricos e reaprovetaveis em diversos cenários de teste
-    // Dessa forma permite uma padronização
 
-    [Given(@"Acesso o (.*)")]
-    public void GivenAcessoO(string pageName)
+    [Given(@"Que eu esteja na tela principal")]
+    public void GivenQueEuEstejaNaTelaPrincipal()
+    {
+      Navigate();
+      CurrentPage = GetInstance<PrincipalPage>();
+      CurrentPage = CurrentPage.As<PrincipalPage>().ClickButtonComecarAutomacaoWeb();
+    }
+
+    [Given(@"Acesso o menu ""(.*)""")]
+    public void GivenAcessoOMenu(string menu)
     {
       // Recebo o nome do caso de teste sendo executado
       TestCase = TestContext.CurrentContext.Test.Name;
@@ -32,43 +38,21 @@ namespace SeleniumUnitTestProjetc.Extensions
       // Crio o caso de teste no relatório
       ReportHelpers.CriarTeste(TestCase);
 
-      ReportHelpers.Log("Acesso a página " + pageName);
-      LogHelpers.Write("Acesso a página " + pageName);
-      // Verifico o tipo de acesso, tornando génerico o direcionamento de páginas
-      if (pageName == "cadastro de usuario")
-      {
-        CurrentPage = CurrentPage.As<HomePage>().ClickLinkCriarUsuario();
+      //ScenarioContext.Current.Pending();
 
-        // Verifico se existe elemento(s)
-        CurrentPage.As<NovoUsuarioPage>().VerificaSeElementosDisponiveisCadastroUsuario();
-      }
-      else if (pageName == "Textos")
-      {
-        CurrentPage = CurrentPage.As<HomePage>().ClickLinkTextos();
-      }
-      else if (pageName == "Upload de Arquivo")
-      {
-        CurrentPage = CurrentPage.As<HomePage>().ClickLinkUploadDeArquivo();
-      }
+      ReportHelpers.Log("Seleciono " + menu);
+      LogHelpers.Write("Seleciono " + menu);
+
+      CurrentPage.As<HomePage>().SelecionarMenu(menu);
     }
 
-    [When(@"Prencher os dados de entrada")]
-    public void WhenPrencherOsDadosDeEntrada(Table table)
+    [Given(@"seleciono a opção ""(.*)""")]
+    public void GivenSelecionoAOpcao(string opcaoMenu)
     {
-      try
-      {// Necessário o pacote *Specflow.Assist.Dynamic* para realizar a criação de variáveis utilizando tabelas
-        dynamic data = table.CreateDynamicInstance();
-        // Os nomes dos parametros devem ser exatamente iguais ao da tabela da feature
-        CurrentPage.As<NovoUsuarioPage>().PreencherDadosDeEntrada(data.Nome, data.UltimoNome, data.Email, data.Endereco, data.Universidade, data.Profissao, data.Genero, data.Idade);
+      ReportHelpers.Log("Seleciono a opção " + opcaoMenu);
+      LogHelpers.Write("Seleciono a opção " + opcaoMenu);
 
-        ReportHelpers.Log("Prencho os dados de entrada");
-        LogHelpers.Write("Prencho os dados de entrada");
-        LogHelpers.PrintScreen();
-      }
-      catch (Exception e)
-      {
-        Assert.Fail("Não foi possível validar os dados de entrada, erro: " + e.Message);
-      }
-    }
+      CurrentPage.As<HomePage>().SelecionarOpcaoMenu(opcaoMenu);
+    }  
   }
 }
